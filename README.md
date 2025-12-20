@@ -102,8 +102,8 @@ http://localhost:8000/products/list.php
 
 ---
 
-日本語説明
-概要
+## 日本語説明
+## 概要
 
 本プロジェクトは、PHP と MySQL を使用した CRUD（作成・参照・更新・削除）機能を持つ
 商品管理用の Web アプリケーションです。
@@ -111,24 +111,24 @@ http://localhost:8000/products/list.php
 実務でよく見られる小規模業務システムを想定し、
 Repository パターンを用いてデータアクセス処理を分離しています。
 
-機能一覧
-商品一覧表示
-商品の新規登録
-商品情報の編集
-商品の削除
+###機能一覧
+- 商品一覧表示
+- 商品の新規登録
+- 商品情報の編集
+- 商品の削除
 
-バックエンド
-PHP 8.x
-PDO
-Repository パターン
+###バックエンド
+- PHP 8.x
+- PDO
+- Repository パターン
 
-データベース
-MySQL 8.x
+###データベース
+- MySQL 8.x
 
-開発環境
-Windows
-Visual Studio Code
-Git / GitHub
+###開発環境
+- Windows
+- Visual Studio Code
+- Git / GitHub
 
 ### セットアップ手順
 
