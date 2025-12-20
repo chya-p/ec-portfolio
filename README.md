@@ -36,6 +36,7 @@ including database design, SQL handling, and clean code structure using the Repo
 
 ## Directory Structure
 
+```
 ec-portfolio/
 ├─ php/
 │ ├─ config/
@@ -47,11 +48,11 @@ ec-portfolio/
 │ │ ├─ update.php
 │ │ └─ delete.php
 │ └─ repository/
-│ └─ ProductRepository.php
+│   └─ ProductRepository.php
 ├─ db/
 │ └─ schema.sql
 └─ README.md
-
+```
 
 ---
 
