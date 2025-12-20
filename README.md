@@ -102,7 +102,7 @@ http://localhost:8000/products/list.php
 
 ---
 
-## 日本語説明
+# 日本語説明
 ## 概要
 
 本プロジェクトは、PHP と MySQL を使用した CRUD（作成・参照・更新・削除）機能を持つ
@@ -111,28 +111,35 @@ http://localhost:8000/products/list.php
 実務でよく見られる小規模業務システムを想定し、
 Repository パターンを用いてデータアクセス処理を分離しています。
 
-###機能一覧
+---
+
+## 機能一覧
 - 商品一覧表示
 - 商品の新規登録
 - 商品情報の編集
 - 商品の削除
 
-###バックエンド
+---
+
+## 使用技術
+### バックエンド
 - PHP 8.x
 - PDO
 - Repository パターン
 
-###データベース
+### データベース
 - MySQL 8.x
 
-###開発環境
+### 開発環境
 - Windows
 - Visual Studio Code
 - Git / GitHub
 
-### セットアップ手順
+---
 
-#### 1. データベース作成
+## セットアップ手順
+
+### 1. データベース作成
 
 ```sql
 CREATE DATABASE ec_portfolio;
@@ -140,13 +147,13 @@ USE ec_portfolio;
 SOURCE db/schema.sql;
 ```
 
-#### 2. データベース接続設定
+### 2. データベース接続設定
 
 `php/config/db.php` を編集してデータベース認証情報を設定するか、環境変数を設定してください：
 - `DB_USER` (デフォルト: 'root')
 - `DB_PASS` (デフォルト: '')
 
-#### 3. PHP 開発用サーバー起動
+### 3. PHP 開発用サーバー起動
 
 ```bash
 cd php
@@ -160,7 +167,7 @@ http://localhost:8000/products/list.php
 
 ---
 
-### 設計ポイント
+## 設計ポイント
 
 - SQL を Repository クラスに集約し、責務を分離
 - プリペアドステートメントによる SQL Injection 対策
@@ -168,7 +175,7 @@ http://localhost:8000/products/list.php
 
 ---
 
-### 今後の改善予定
+## 今後の改善予定
 
 - Java（Spring Boot）による同等機能の CRUD 実装
 - REST API 化
