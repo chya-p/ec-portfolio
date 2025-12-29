@@ -2,19 +2,36 @@
 require_once __DIR__ . '/../config/db.php';
 require_once __DIR__ . '/../repository/ProductRepository.php';
 
-$repo = new ProductRepository($pdo);
+#$repo = new ProductRepository($pdo);
 
 // POST 送信されたときだけ登録処理を行う
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name  = trim($_POST['name'] ?? '');
     $price = (int)($_POST['price'] ?? 0);
-    $quantity = (int)($_POST['quantity'] ?? 0);
+    $stock = (int)($_POST['stock'] ?? 0);
 
-    if ($name !== '' && $price > 0 && $quantity > 0) {
-        $repo->insert($name, $price, $quantity);
+    if ($name !== '' && $price > 0 && $stock > 0) {
+
+        $data = [
+            'name'  => $name,
+            'price' => $price,
+            'stock' => $stock,
+        ];
+    
+        $ch = curl_init('http://localhost:8080/api/products');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            'Content-Type: application/json'
+        ]);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+    
+        curl_exec($ch);
+        curl_close($ch);
+    
         header('Location: list.php');
         exit;
-    }
+    }    
 }
 ?>
 
@@ -31,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <form method="post">
     商品名：<input type="text" name="name"><br>
     価格：<input type="number" name="price"><br>
-    個数：<input type="number" name="quantity" min="0" required><br>
+    在庫数：<input type="number" name="stock" min="0" required><br>
     <button type="submit">登録</button>
 </form>
 

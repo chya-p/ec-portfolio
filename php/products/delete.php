@@ -1,12 +1,14 @@
 <?php
-require_once __DIR__ . '/../config/db.php';
-require_once __DIR__ . '/../repository/ProductRepository.php';
-
 $id = (int)($_GET['id'] ?? 0);
 
 if ($id > 0) {
-    $repo = new ProductRepository($pdo);
-    $repo->deleteById($id);
+
+    $ch = curl_init("http://localhost:8080/api/products/{$id}");
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+    curl_exec($ch);
+    curl_close($ch);
 }
 
 header('Location: list.php');

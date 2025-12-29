@@ -2,10 +2,13 @@
 require_once __DIR__ . '/../config/db.php';
 require_once __DIR__ . '/../repository/ProductRepository.php';
 
-$repo = new ProductRepository($pdo);
-
+#$repo = new ProductRepository($pdo);
+#$id = (int)($_GET['id'] ?? 0);
+#$product = $repo->findById($id);
 $id = (int)($_GET['id'] ?? 0);
-$product = $repo->findById($id);
+$json = file_get_contents("http://localhost:8080/api/products/$id");
+$product = json_decode($json, true);
+
 
 if (!$product) {
     exit('商品が見つかりません');
@@ -31,8 +34,8 @@ if (!$product) {
     価格：
     <input type="number" name="price" value="<?= (int)$product['price'] ?>" required><br>
 
-    個数：
-    <input type="number" name="quantity" value="<?= (int)$product['quantity'] ?>" min="0" required><br>
+    在庫数：
+    <input type="number" name="stock" value="<?= (int)$product['stock'] ?>" min="0" required><br>
 
     <button type="submit">更新</button>
 </form>

@@ -11,7 +11,7 @@ class ProductRepository
 
     public function findAll(): array
     {
-        $sql = "SELECT id, name, price, quantity, created_at FROM products ORDER BY id DESC";
+        $sql = "SELECT id, name, price, stock, created_at FROM products ORDER BY id DESC";
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -26,7 +26,7 @@ class ProductRepository
 
     public function findById(int $id): ?array
     {
-     $sql = "SELECT id, name, price, quantity, created_at FROM products WHERE id = :id";
+     $sql = "SELECT id, name, price, stock, created_at FROM products WHERE id = :id";
          $stmt = $this->pdo->prepare($sql);
          $stmt->execute([':id' => $id]);
 
@@ -34,12 +34,12 @@ class ProductRepository
          return $product ?: null;
      }
 
-     public function update(int $id, string $name, int $price, int $quantity): void
+     public function update(int $id, string $name, int $price, int $stock): void
      {
          $sql = "UPDATE products
                  SET name = :name,
                      price = :price,
-                     quantity = :quantity
+                     stock = :stock
                  WHERE id = :id";
      
          $stmt = $this->pdo->prepare($sql);
@@ -47,20 +47,20 @@ class ProductRepository
              ':id'       => $id,
              ':name'     => $name,
              ':price'    => $price,
-             ':quantity' => $quantity,
+             ':stock' => $stock,
          ]);
      }     
 
-    public function insert(string $name, int $price, int $quantity): void
+    public function insert(string $name, int $price, int $stock): void
     {
-        $sql = "INSERT INTO products (name, price, quantity, created_at)
-                VALUES (:name, :price, :quantity, NOW())";
+        $sql = "INSERT INTO products (name, price, stock, created_at)
+                VALUES (:name, :price, :stock, NOW())";
         
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([
             ':name'     => $name,
             ':price'    => $price,
-            ':quantity' => $quantity,
+            ':stock' => $stock,
         ]);
     }
 

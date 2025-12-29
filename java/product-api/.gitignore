@@ -1,0 +1,60 @@
+# ==============================
+# Security / Environment
+# ==============================
+.env
+application-local.yml
+application-dev.yml
+
+# ==============================
+# Build artifacts
+# ==============================
+target/
+build/
+
+# Maven Wrapper
+.mvn/wrapper/maven-wrapper.jar
+
+# 例外（src 配下の build / target は追跡）
+!**/src/main/**/target/
+!**/src/test/**/target/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# ==============================
+# Spring Tool Suite (STS)
+# ==============================
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache
+
+# ==============================
+# IntelliJ IDEA
+# ==============================
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# ==============================
+# NetBeans
+# ==============================
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# ==============================
+# VS Code
+# ==============================
+.vscode/
+
+# ==============================
+# OS dependent files
+# ==============================
+.DS_Store
+Thumbs.db
