@@ -1,5 +1,32 @@
 # EC Portfolio – PHP CRUD & Java Spring Boot REST API
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Key Concepts Demonstrated](#key-concepts-demonstrated)
+- [Project Structure](#project-structure)
+- [PHP CRUD Application](#php-crud-application)
+  - [Overview (PHP)](#overview-1)
+  - [Features](#features)
+  - [Tech Stack (PHP)](#tech-stackphp)
+  - [Directory Structure (PHP)](#directory-structure-php)
+  - [Setup Instructions (PHP)](#setup-instructions)
+  - [PHP Design Notes](#php-design-notes)
+- [Java (Spring Boot) REST API](#java-spring-boot-rest-api)
+  - [Overview (Java)](#overview-2)
+  - [Tech Stack (Java)](#tech-stack-java)
+  - [Directory Structure (Java)](#directory-structure-java)
+  - [Setup Instructions (Java)](#setup-instructions-java)
+  - [Health Check](#health-check)
+  - [API Endpoints](#api-endpoints)
+  - [Java Design Notes](#java-design-notes)
+- [日本語説明](#日本語説明)
+  - [概要](#概要)
+  - [プロジェクト構成](#プロジェクト構成)
+  - [PHP CRUD アプリケーション](#php-crud-アプリケーション)
+  - [Java（Spring Boot）REST API](#javaspring-bootrest-api)
+  - [今後の改善予定](#今後の改善予定)
+
 ## Overview
 This repository is a **backend-focused portfolio project** that demonstrates
 how the same product management system can be implemented using **both PHP and Java (Spring Boot)**,

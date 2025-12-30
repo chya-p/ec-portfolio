@@ -2,8 +2,8 @@
 $host = 'localhost';
 $db   = 'ec_portfolio';
 // Database connection settings (set your own values)
-$db_user = "your_username";
-$db_pass = "your_password";
+$db_user = getenv('DB_USER') ?: 'root';
+$db_pass = getenv('DB_PASS') ?: '';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=utf8mb4";
 
