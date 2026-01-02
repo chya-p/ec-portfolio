@@ -127,6 +127,8 @@ ec-portfolio/
 
 ### 1. Create Database
 
+Log in to MySQL and execute the following commands.
+
 ```sql
 CREATE DATABASE ec_portfolio;
 USE ec_portfolio;
@@ -134,15 +136,18 @@ SOURCE db/schema.sql;
 ```
 
 ### 2. Configure Database Connection
-
+This project retrieves database credentials from environment variables.
 Edit `php/config/db.php` or set environment variables:
-- `DB_USER` (default: root)
-- `DB_PASS` (default: empty)
+- `DB_USER` (e.g. ec_user)
+- `DB_PASS` (e.g. ec_pass123!)
+※ Values shown above are for local development only.
 
 ### 3. Start PHP Built-in Server
 
 ```bash
 cd php
+$Env:DB_USER="ec_user"
+$Env:DB_PASS="ec_pass123!"
 php -S localhost:8000
 ```
 
@@ -211,14 +216,16 @@ If not set, default values are used.
 
 ```bash
 cd java/product-api
-mvn spring-boot:run
+$Env:DB_USER="ec_user"
+$Env:DB_PASS="ec_pass123!"
+.\mvnw spring-boot:run
 ```
 ### The API will start:
 
 ```text
 http://localhost:8080
 ```
-
+✅ Once the PHP setup is complete, proceed to the [Java / Spring Boot Setup](#setup-instructions-java) section.
 ---
 
 ## Health Check
@@ -406,6 +413,8 @@ php/
 
 ### 1. データベース作成
 
+MySQL にログイン後、以下を実行してください。
+
 ```sql
 CREATE DATABASE ec_portfolio;
 USE ec_portfolio;
@@ -414,14 +423,18 @@ SOURCE db/schema.sql;
 
 ### 2. データベース接続設定
 
+本プロジェクトでは、データベース接続情報を環境変数から取得する構成にしています。
 `php/config/db.php` を編集するか、以下の環境変数を設定してください。
-- `DB_USER` (デフォルト: 'root')
-- `DB_PASS` (デフォルト: '')
+- `DB_USER` （例: ec_user）
+- `DB_PASS` （例: ec_pass123!）
+※ ローカル開発用の値を想定しています。
 
 ### 3. PHP 開発用サーバー起動
 
 ```bash
 cd php
+$Env:DB_USER="ec_user"
+$Env:DB_PASS="ec_pass123!"
 php -S localhost:8000
 ```
 
@@ -429,7 +442,7 @@ php -S localhost:8000
 ```text
 http://localhost:8000/products/list.php
 ```
-
+✅ PHP のセットアップが完了したら、次は [Java / Spring Boot のセットアップ](#java-セットアップ手順) セクションへ進んでください。
 ---
 
 ## PHP 設計ポイント
@@ -490,8 +503,11 @@ DB_PASS=your_mysql_password
 ### 2. アプリケーション起動
 ```bash
 cd java/product-api
-mvn spring-boot:run
+$Env:DB_USER="ec_user"
+$Env:DB_PASS="ec_pass123!"  
+.\mvn spring-boot:run
 ```
+
 起動後の URL：
 ```text
 http://localhost:8080
